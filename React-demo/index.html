@@ -254,11 +254,18 @@
         },
       ];
 
-      function Course({ title, id, imageUrl, description, member, data }) {
-        // console.log(data)
+      function Course({
+        title,
+        id,
+        imageUrl,
+        description,
+        member,
+        data,
+        onClick,
+      }) {
         return (
           <div style={{ marginBottom: "50px" }}>
-            <h1 onClick={() => alert('Bài học: ' + title)}>
+            <h1 onClick={() => onClick(title)}>
               ID: {data.id} - {title}
             </h1>
             <img src={imageUrl} />
@@ -268,18 +275,55 @@
         );
       }
 
+      function Button(data) {
+        const { title, href, onClick, children } = data;
+        let Component = "button";
+        const props = {};
+
+        if (href) {
+          Component = "a";
+          props.href = href;
+        }
+
+        onClick && (props.onClick = onClick);
+
+        return <Component {...props}>{title}</Component>;
+      }
+
+      // mechanism render props
+      function List({ data, children }) {
+        return <ul>{data.map(item => children(item))}</ul>;
+      }
+
       function App() {
+        const handleClick = (message) => {
+          alert(message);
+        };
+
         return apiCourse.map((item, index) => {
+          const cars = ["BMW", "Mazda", "Honda"];
+
           return (
-            <Course
-              key={index}
-              id={item.id}
-              title={item.title}
-              imageUrl={item.image_url}
-              description={item.description}
-              member={item.students_count}
-              data={item}
-            />
+            <React.Fragment>
+              <Course
+                key={index}
+                id={item.id}
+                title={item.title}
+                imageUrl={item.image_url}
+                description={item.description}
+                member={item.students_count}
+                data={item}
+                onClick={handleClick}
+              />
+              <Button
+                title="Click me!"
+                // href="http://fullstack.edu.vn"
+                onClick={() => console.log(Math.random())}
+              >
+                click
+              </Button>
+              <List data={cars}>{(item) => <li>{item}</li>}</List>
+            </React.Fragment>
           );
         });
       }
