@@ -9,11 +9,12 @@ import Todolist from './Todolist';
 import Todolist2 from './Todolist2'
 import Mount from './Mount'
 import Getapi from './Getapi'
+import Countdown from './Countdown';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <React.Fragment>
     {/* <App /> */}
     {/* <Gift /> */}
     {/* <Radio /> */}
@@ -21,8 +22,9 @@ root.render(
     {/* <Todolist /> */}
     {/* <Todolist2 /> */}
     {/* <Mount /> */}
-    <Getapi />
-  </React.StrictMode>
+    {/* <Getapi /> */}
+    <Countdown />
+  </React.Fragment>
 );
 
 reportWebVitals();
