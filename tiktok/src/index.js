@@ -10,6 +10,7 @@ import Todolist2 from './Todolist2'
 import Mount from './Mount'
 import Getapi from './Getapi'
 import Countdown from './Countdown';
+import Imagepreview from './Imagepreview';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,7 +24,8 @@ root.render(
     {/* <Todolist2 /> */}
     {/* <Mount /> */}
     {/* <Getapi /> */}
-    <Countdown />
+    {/* <Countdown /> */}
+    <Imagepreview />
   </React.Fragment>
 );
 
