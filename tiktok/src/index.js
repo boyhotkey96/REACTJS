@@ -20,12 +20,12 @@ root.render(
     {/* <Gift /> */}
     {/* <Radio /> */}
     {/* <Checkbox /> */}
-    {/* <Todolist /> */}
+    <Todolist />
     {/* <Todolist2 /> */}
     {/* <Mount /> */}
     {/* <Getapi /> */}
     {/* <Countdown /> */}
-    <Imagepreview />
+    {/* <Imagepreview /> */}
   </React.Fragment>
 );
 
