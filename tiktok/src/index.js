@@ -11,6 +11,7 @@ import Mount from './Mount'
 import Getapi from './Getapi'
 import Countdown from './Countdown';
 import Imagepreview from './Imagepreview';
+import Fetchapi from './Fetchapi';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,12 +21,13 @@ root.render(
     {/* <Gift /> */}
     {/* <Radio /> */}
     {/* <Checkbox /> */}
-    <Todolist />
+    {/* <Todolist /> */}
     {/* <Todolist2 /> */}
     {/* <Mount /> */}
     {/* <Getapi /> */}
     {/* <Countdown /> */}
     {/* <Imagepreview /> */}
+    <Fetchapi />
   </React.Fragment>
 );
 
