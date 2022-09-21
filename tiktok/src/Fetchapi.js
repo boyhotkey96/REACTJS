@@ -24,19 +24,19 @@ function Content() {
       <ul>
         {posts.map((post) => (
           <li key={post.id}>
-            {type === "posts"
-              ? post.body
-              : type === "comments"
-              ? post.email
-              : type === "albums"
-              ? post.title
-              : type === "photos"
-              ? post.url
-              : type === "todos"
-              ? console.log(post.completed)
-              : type === "users"
-              ? post.name
-              : null}
+            {type === "posts" ? (
+              post.body
+            ) : type === "comments" ? (
+              post.email
+            ) : type === "albums" ? (
+              post.title
+            ) : type === "photos" ? (
+              <img src={`${post.url}`} width="100px" alt="photos" />
+            ) : type === "todos" ? (
+              `${post.completed}`
+            ) : type === "users" ? (
+              post.name
+            ) : null}
           </li>
         ))}
       </ul>
