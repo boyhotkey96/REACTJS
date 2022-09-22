@@ -1,61 +1,63 @@
-import { createElement, useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
-function Content() {
-  const [count, setCount] = useState(360)
+function ContentTest() {
+  const [count, setCount] = useState(360);
 
   useEffect(() => {
-    setInterval(() => {
-      setCount(prev => prev - 1)
+    setTimeout(() => {
+      setCount(count - 1);
     }, 1000);
-  }, [])
+  }, [count]);
 
-  return (
-    <p>
-      {count}
-    </p>
-  )
+  return <p>{count}</p>;
 }
 
 function Countdown() {
-  // const [show, setShow] = useState(false)
-  const initialCount = 180
-  const [count, setCount] = useState(initialCount)
+  const initialCount = 180;
+  const [count, setCount] = useState(initialCount);
+  const countRefDown = useRef(null);
+  const countRefUp = useRef(null);
 
   const handleCountdown = () => {
-    setInterval(() => {
-      setCount(prev => prev - 1)
+    clearInterval(countRefUp.current);
+    countRefDown.current = setInterval(() => {
+      setCount((prev) => {
+        const result = prev - 1;
+        console.log(result);
+        return result;
+      });
     }, 1000);
-  }
-  let elm
-  useEffect(() => {
-     elm = document.querySelector('.decrease')
-    // console.log(elm)
-  })
+  };
 
-  const handReset = () => {
-    elm.removeEventListener('click', handleCountdown);
-    setCount(initialCount)
-  }
+  const handleCountup = () => {
+    clearInterval(countRefDown.current);
+    countRefUp.current = setInterval(() => {
+      setCount((prev) => {
+        const result = prev + 1;
+        console.log(result);
+        return result;
+      });
+    }, 1000);
+  };
+
+  const handleReset = () => {
+    clearInterval(countRefDown.current);
+    clearInterval(countRefUp.current);
+    setCount(initialCount);
+  };
 
   return (
     <div style={{ padding: "30px", fontSize: "28px" }}>
-      {/* <button onClick={setShow.bind(null, !show)}>Countdown</button>
-      {show && <Content />} */}
-
-      <button onClick={handReset}>Reset</button>
-      <button className='decrease'
-        style={{ cursor: "pointer" }}
-        onClick={handleCountdown}>
+      <button onClick={handleReset}>Reset</button>
+      <button style={{ cursor: "pointer" }} onClick={handleCountdown}>
         -
       </button>
-      <button
-        style={{ cursor: "pointer" }}
-        onClick={setCount.bind(null, prev => prev + 1)}>
+      <button style={{ cursor: "pointer" }} onClick={handleCountup}>
         +
       </button>
       <p>Count: {count}</p>
     </div>
-  )
+  );
 }
 
-export default Countdown
+export default Countdown;

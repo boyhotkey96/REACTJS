@@ -25,9 +25,9 @@ root.render(
     {/* <Todolist2 /> */}
     {/* <Mount /> */}
     {/* <Getapi /> */}
-    {/* <Countdown /> */}
+    <Countdown />
     {/* <Imagepreview /> */}
-    <Fetchapi />
+    {/* <Fetchapi /> */}
   </React.Fragment>
 );
 
