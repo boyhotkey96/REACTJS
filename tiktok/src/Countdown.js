@@ -17,6 +17,7 @@ function Countdown() {
   const [count, setCount] = useState(initialCount);
   const countRefDown = useRef(null);
   const countRefUp = useRef(null);
+  // countRefDown.current = count
 
   const handleCountdown = () => {
     clearInterval(countRefUp.current);
