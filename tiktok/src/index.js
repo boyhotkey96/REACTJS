@@ -13,6 +13,7 @@ import Countdown from './Countdown';
 import Imagepreview from './Imagepreview';
 import Fetchapi from './Fetchapi';
 import Imagepreview2 from './Imagepreview2';
+import Countdownplus from './Countdownplus';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -29,7 +30,8 @@ root.render(
     {/* <Countdown /> */}
     {/* <Imagepreview /> */}
     {/* <Fetchapi /> */}
-    <Imagepreview2 />
+    {/* <Imagepreview2 /> */}
+    <Countdownplus />
   </React.Fragment>
 );
 
