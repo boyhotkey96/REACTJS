@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+import ContentMemo from "./ContentMemo";
 
 function CountdownUseref() {
   const [count, setCount] = useState(60);
@@ -35,6 +36,7 @@ function CountdownUseref() {
 
   return (
     <div style={{ padding: "20px" }}>
+      <ContentMemo count={timerId.current} />
       <h1 ref={h1Ref} style={{ fontSize: "72px" }}>
         {count}
       </h1>
