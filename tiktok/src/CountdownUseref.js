@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect } from "react";
-import ContentMemo from "./ContentMemo";
+import { useState, useRef, useEffect, useCallback } from "react";
+import ContentMemo from "./ContentMemouseCallback";
 
 function CountdownUseref() {
   const [count, setCount] = useState(60);
@@ -34,9 +34,14 @@ function CountdownUseref() {
     console.log("Stop: ", timerId);
   };
 
+  // Handle Increase count
+  const handleIncrease = useCallback(() => {
+    setCount((prevCount) => prevCount + 1);
+  });
+
   return (
     <div style={{ padding: "20px" }}>
-      <ContentMemo count={timerId.current} />
+      <ContentMemo onIncrease={handleIncrease} />
       <h1 ref={h1Ref} style={{ fontSize: "72px" }}>
         {count}
       </h1>
