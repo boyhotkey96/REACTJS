@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Tài Xỉu version 0.1</title>
+  </head>
+  <body>
+    <ul></ul>
+    <h1 class="result"></h1>
+    <h2 class="count-down"></h2>
+    <button style="padding: 10px; cursor: pointer">Mở cược</button>
+  </body>
+  <script>
+    const ulElm = document.getElementsByTagName("ul")[0];
+    const btnElm = document.getElementsByTagName("button")[0];
+    const h1Result = document.querySelector(".result");
+    const h2Countdown = document.querySelector(".count-down");
+
+    const dongXu = ["Đồng Xu 1", "Đồng Xu 2", "Đồng Xu 3", "Đồng Xu 4"];
+    const matDongXu = ["Đỏ", "Trắng"];
+    const resultDongXu = [];
+    const arrResultDongxu = [];
+    const objResultDongXu = {};
+
+    let htmls2sub = "";
+    let htmls2 = "";
+    const handleMoCuoc = () => {
+      for (let i in dongXu) {
+        let random = Math.floor(Math.random() * matDongXu.length);
+        resultDongXu[i] = matDongXu[random];
+
+        objResultDongXu[`Đồng xu ${+i + 1}`] = matDongXu[random];
+      }
+      arrResultDongxu.push(objResultDongXu);
+      console.log(arrResultDongxu);
+      console.log(resultDongXu);
+
+      let red = 0;
+      let white = 0;
+      let result = "";
+      for (let i = 0; i < resultDongXu.length; i++) {
+        resultDongXu[i] === "Đỏ" ? (red += 1) : (white += 1);
+      }
+
+      switch (red) {
+        case 0:
+          result = "HÚP TRẮNG";
+          break;
+        case 1:
+          result = "Xỉu";
+          break;
+        case 2:
+          result = "Hòa";
+          break;
+        case 3:
+          result = "Tài";
+          break;
+        case 4:
+          result = "HÚP ĐỎ";
+          break;
+      }
+      const chiTiet = `${red} đỏ ${white} trắng`;
+      console.log(chiTiet);
+
+      let htmls = "";
+      dongXu.map((item, index) => {
+        htmls += `
+              <li style="padding: 10px; font-size: 28px">
+                ${item}: <span style="color: red">${resultDongXu[index]}</span>
+              </li>
+            `;
+        ulElm.innerHTML = htmls;
+      });
+
+      console.log(htmls2sub);
+      htmls2 += `${htmls2sub}<span style="color: red">${result}</span><span style="color: blue"> (${chiTiet})</span>`;
+      if (htmls2sub === "") {
+        htmls2sub = " - ";
+      }
+      h1Result.innerHTML = `Tài/Xỉu: <span style="font-size: 24px">${htmls2}</span>`;
+      console.log(h1Result);
+    };
+
+    let time = 3;
+    setInterval(() => {
+      h2Countdown.innerHTML = `Time: ${time}`;
+      time--;
+      if (time < 0) {
+        handleMoCuoc();
+        time = 3;
+      }
+    }, 1000);
+
+    btnElm.addEventListener("click", handleMoCuoc);
+  </script>
+</html>
