@@ -17,6 +17,7 @@ import Countdownplus from './Countdownplus';
 import CountdownUseref from './CountdownUseref';
 import CartUseMemo from './CartUseMemo';
 import CountuseReducer from './CountuseReducer';
+import TodolistusingReducer from './TodolistUsinguseReducer';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -36,8 +37,9 @@ root.render(
     {/* <Imagepreview2 /> */}
     {/* <Countdownplus /> */}
     {/* <CountdownUseref /> */}
-    <CartUseMemo />
+    {/* <CartUseMemo /> */}
     {/* <CountuseReducer /> */}
+    <TodolistusingReducer />
   </React.Fragment>
 );
 
