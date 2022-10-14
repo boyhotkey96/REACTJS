@@ -36,8 +36,8 @@ root.render(
     {/* <Imagepreview2 /> */}
     {/* <Countdownplus /> */}
     {/* <CountdownUseref /> */}
-    {/* <CartUseMemo /> */}
-    <CountuseReducer />
+    <CartUseMemo />
+    {/* <CountuseReducer /> */}
   </React.Fragment>
 );
 

@@ -6,9 +6,17 @@ function CartUseMemo() {
   const [products, setProducts] = useState([]);
 
   const nameRef = useRef();
+  const priceRef = useRef();
 
   // Handle click button add
   const handleAdd = () => {
+    console.log(nameRef.current);
+    if (
+      nameRef.current.value.trim() === '' ||
+      priceRef.current.value.trim() === ''
+    ) {
+      return alert("Enter value!");
+    }
     setProducts((prevProd) => [...prevProd, { name, price: +price }]);
     setName("");
     setPrice("");
@@ -48,6 +56,7 @@ function CartUseMemo() {
       <input
         type="number"
         placeholder="Enter price"
+        ref={priceRef}
         value={price}
         onChange={(e) => setPrice(e.target.value)}
         onKeyDown={handleKeyPress}
