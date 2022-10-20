@@ -59,6 +59,7 @@ function TodolistusingReducer() {
   const inputRef = useRef();
 
   const handleAdd = () => {
+    if (inputRef.current.value.trim() === '') return alert('Enter text!');
     dispatch(addJob(job));
     dispatch(setJob(""));
     inputRef.current.focus();
