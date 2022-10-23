@@ -19,6 +19,7 @@ import CartUseMemo from './CartUseMemo';
 import CountuseReducer from './CountuseReducer';
 import TodolistusingReducer from './TodolistUsinguseReducer';
 import TodolistUsinguseReducerLocalStorage from './TodolistUsinguseReducerLocalStorage';
+import DemoReducer from './DemoReducer'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -41,7 +42,8 @@ root.render(
     {/* <CartUseMemo /> */}
     {/* <CountuseReducer /> */}
     {/* <TodolistusingReducer /> */}
-    <TodolistUsinguseReducerLocalStorage />
+    {/* <TodolistUsinguseReducerLocalStorage /> */}
+    <DemoReducer />
   </React.Fragment>
 );
 
