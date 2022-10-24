@@ -64,7 +64,6 @@ const reducer = (state, action) => {
       // newJobs = {...state, jobs: [...copyJobs]}
 
       // Solution 3
-      //logic bị sai mai sửa lại?
       if (state.jobs.length === 0) {
         const getProducts = JSON.parse(localStorage.getItem(getKeyLocal));
         getProducts.splice(action.payload, 1);

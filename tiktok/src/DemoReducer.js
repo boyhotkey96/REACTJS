@@ -32,11 +32,22 @@ const reducer = (state, action) => {
     case DELET_JOB:
       // return { ...state, ...state.jobs.splice(action.payload, 1) };
 
-      const copyJobs = [...state.jobs];
-      copyJobs.splice(action.payload, 1);
-      localStorage.setItem(nameLocal, JSON.stringify(copyJobs));
+      // const copyJobs = [...state.jobs];
+      // copyJobs.splice(action.payload, 1);
+      // let temp1 = { ...state, jobs: copyJobs }
+      // localStorage.setItem(nameLocal, JSON.stringify(copyJobs));
+      // return temp1;
 
-      return { ...state, jobs: copyJobs };
+      let newJobs2;
+      if (state.jobs.length === 0) {
+        const getProducts = JSON.parse(localStorage.getItem(nameLocal));
+        getProducts.splice(action.payload, 1);
+        newJobs2 = { ...state, jobs: [...getProducts] };
+      } else {
+        newJobs2 = { ...state, ...state.jobs.splice(action.payload, 1) };
+      }
+      localStorage.setItem(nameLocal, JSON.stringify(newJobs2.jobs));
+      return newJobs2;
     default:
       throw new Error("Error invalid");
   }
