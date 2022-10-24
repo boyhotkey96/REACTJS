@@ -1,25 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import DemoContext from './DemoContext';
+import ThemeProvider from './DemoContext/ThemeProvider';
+import Demo2Context from './Demo2Context'
+import ThemeProvider2 from './Demo2Context/ThemeProvider'
 import './index.css';
-import App from './App';
-import Gift from './Gift';
-import Radio from './Radio'
-import Checkbox from './Checkbox'
-import Todolist from './Todolist';
-import Todolist2 from './Todolist2'
-import Mount from './Mount'
-import Getapi from './Getapi'
-import Countdown from './Countdown';
-import Imagepreview from './Imagepreview';
-import Fetchapi from './Fetchapi';
-import Imagepreview2 from './Imagepreview2';
-import Countdownplus from './Countdownplus';
-import CountdownUseref from './CountdownUseref';
-import CartUseMemo from './CartUseMemo';
-import CountuseReducer from './CountuseReducer';
-import TodolistusingReducer from './TodolistUsinguseReducer';
-import TodolistUsinguseReducerLocalStorage from './TodolistUsinguseReducerLocalStorage';
-import DemoReducer from './DemoReducer'
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -42,8 +27,14 @@ root.render(
     {/* <CartUseMemo /> */}
     {/* <CountuseReducer /> */}
     {/* <TodolistusingReducer /> */}
-    {/* <TodolistUsinguseReducerLocalStorage /> */}
-    <DemoReducer />
+    {/* <TodolistLocalstorage /> */}
+    {/* <DemoReducer /> */}
+   {/* <ThemeProvider> 
+      <DemoContext />
+    </ThemeProvider> */}
+    <ThemeProvider2>
+      <Demo2Context />
+    </ThemeProvider2>
   </React.Fragment>
 );
 
