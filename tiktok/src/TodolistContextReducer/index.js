@@ -20,7 +20,7 @@ function TodolistContextReducer() {
             return
         }
         dispatch(addJob(job));
-        dispatch(setJob(""));
+        dispatch(setJob(""));   
         inputRef.current.focus();
     };
 
