@@ -1,3 +1,4 @@
+import React from 'react'
 import Heading from "./Heading"
 import Paragrap from "./Paragrap"
 import GlobalStyles from "./GlobalStyles"

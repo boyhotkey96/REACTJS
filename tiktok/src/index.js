@@ -1,16 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import DemoContext from './DemoContext';
-import ThemeProvider from './DemoContext/ThemeProvider';
-import Demo2Context from './Demo2Context'
-import ThemeProvider2 from './Demo2Context/ThemeProvider'
-import DemoReducer from './DemoReducer'
-import ContextReducer from './ContextReducer'
-import Provider from './ContextReducer/store/provider'
-import TodolistContextReducer from './TodolistContextReducer';
-import TodolistProvider from './TodolistContextReducer/store/TodolistProvider';
-import ControllVideo from './ControllVideo';
 import DemoCssModule from './DemoCssModule';
+import DemoClsx from './DemoClsx';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
@@ -36,7 +27,7 @@ root.render(
     {/* <TodolistusingReducer /> */}
     {/* <TodolistLocalstorage /> */}
     {/* <DemoReducer /> */}
-   {/* <ThemeProvider> 
+    {/* <ThemeProvider> 
       <DemoContext />
     </ThemeProvider> */}
     {/* <ThemeProvider2>
@@ -45,11 +36,12 @@ root.render(
     {/* <Provider>
       <ContextReducer />
     </Provider> */}
-   {/* <TodolistProvider>
+    {/* <TodolistProvider>
 		<TodolistContextReducer />
    </TodolistProvider> */}
-   {/* <ControllVideo /> */}
-   <DemoCssModule />
+    {/* <ControllVideo /> */}
+    {/* <DemoCssModule /> */}
+    <DemoClsx />
   </React.Fragment>
 );
 
