@@ -10,6 +10,7 @@ import Provider from './ContextReducer/store/provider'
 import TodolistContextReducer from './TodolistContextReducer';
 import TodolistProvider from './TodolistContextReducer/store/TodolistProvider';
 import ControllVideo from './ControllVideo';
+import DemoCssModule from './DemoCssModule';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
@@ -47,7 +48,8 @@ root.render(
    {/* <TodolistProvider>
 		<TodolistContextReducer />
    </TodolistProvider> */}
-   <ControllVideo />
+   {/* <ControllVideo /> */}
+   <DemoCssModule />
   </React.Fragment>
 );
 
