@@ -18,7 +18,7 @@ function DemoClsx() {
             <Button type="danger" value="Danger" />
             <Button type="warning" value="Warning" />
             <Button type="info" value="Info" />
-            <Button type="light" value="Light" />
+            <Button type="light" value="Light" disable={true} />
             <Button type="dark" value="Dark" />
         </div>
     )
