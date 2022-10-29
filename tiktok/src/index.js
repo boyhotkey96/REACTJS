@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import DemoCssModule from './DemoCssModule';
-import DemoClsx from './DemoClsx';
+import { BrowserRouter } from 'react-router-dom';
 import DemoReactRouter from './DemoReactRouter';
-import { BrowserRouter } from 'react-router-dom'
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 
