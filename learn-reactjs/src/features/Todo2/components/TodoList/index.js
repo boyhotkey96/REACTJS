@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import classnames from "classnames";
+import clsx from "clsx";
 import './styles.scss'
 
 function TodoList({ todoList, onHandleClick }) {
@@ -8,18 +8,18 @@ function TodoList({ todoList, onHandleClick }) {
         onHandleClick: PropTypes.func
     };
 
-    const handleClick = (index) => {
+    const handleClick = (id) => {
         if (!onHandleClick) return;
-        onHandleClick(index)
+        onHandleClick(id)
     }
 
     return (
-        <ul className="todo">
+        <ul className="todo-list">
             {todoList.map((todo, index) => (
                 <li
-                    key={todo.id}
-                    className={classnames({ 'completed': todo.status === "completed" })}
-                    onClick={() => handleClick(index)}
+                    key={index}
+                    className={clsx({ 'todo-item': true, completed: todo.status === "completed" })}
+                    onClick={() => handleClick(todo.id)}
                 >
                     {todo.title}
                 </li>

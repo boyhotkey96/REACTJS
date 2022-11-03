@@ -12,18 +12,22 @@ function Todo2() {
     const [filteredTodo, setFilteredTodo] = useState("all");
 
     useEffect(() => {
-        console.log(todoList);
+        console.log(renderTodo);
     }, [todoList]);
 
-    const handleClick = (index) => {
-        // console.log(index)
-        const newTodoList = [...todoList];
-        newTodoList[index] = {
-            ...newTodoList[index],
-            status: newTodoList[index].status === "new" ? "completed" : "new",
-        };
+    const handleClick = (id) => {
+        console.log(id)
 
-        setTodoList(newTodoList);
+        const newTodoList = [...todoList];
+        for (let i in newTodoList) {
+            if (newTodoList[i].id === id) {
+                newTodoList[i] = {
+                    ...newTodoList[i],
+                    status: newTodoList[i].status === "new" ? "completed" : "new",
+                };
+                return setTodoList(newTodoList);
+            }
+        }
     };
 
     const handleShowAll = () => {
