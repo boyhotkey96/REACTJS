@@ -1,0 +1,12 @@
+.todo {
+    font-size: 24px;
+    & > li {
+        cursor: pointer;
+    }
+}
+
+.completed {
+    color: #ccc;
+    text-decoration: line-through;
+    font-style: italic;
+}
