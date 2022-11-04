@@ -11,12 +11,13 @@ function TodoFeature() {
     const [todoList, setTodoList] = useState(initTodoList);
     const [filteredStatus, setFilteredStatus] = useState("all");
 
-    const handleClick = (todo, index) => {
-        // console.log(todo, index);
+    const handleClick = (todo) => {
+        // console.log(todo);
         // clone current todoList to the new one
         const newTodoList = [...todoList];
+        const index = newTodoList.findIndex((x) => x.id === todo.id);
+        if (index < 0) return;
 
-        // toggle state
         newTodoList[index] = {
             ...newTodoList[index],
             status: newTodoList[index].status === "new" ? "completed" : "new",

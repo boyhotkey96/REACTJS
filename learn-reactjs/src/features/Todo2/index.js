@@ -18,6 +18,8 @@ function Todo2() {
     const handleClick = (id) => {
         console.log(id)
 
+        
+        // Solution 1:
         const newTodoList = [...todoList];
         for (let i in newTodoList) {
             if (newTodoList[i].id === id) {
@@ -28,6 +30,8 @@ function Todo2() {
                 return setTodoList(newTodoList);
             }
         }
+
+        return setTodoList(newTodoList);
     };
 
     const handleShowAll = () => {
