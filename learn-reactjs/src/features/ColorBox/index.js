@@ -1,5 +1,5 @@
-import "./ColorBox.scss";
 import { useState } from "react";
+import "./ColorBox.scss";
 
 // variable save Prev indexRandom
 let prevIndexRandom = null;
@@ -35,12 +35,12 @@ function ColorBox() {
         <div className="container">
             <h1>Change color box local storage</h1>
             <div
-                className="box-color"
-                style={{ backgroundColor: color, color: prevColor }}
-                onClick={handleBoxClick}
-            >
-                Color Box
-            </div>
+            className="box-color"
+            style={{ backgroundColor: color, color: prevColor }}
+            onClick={handleBoxClick}
+        >
+            Color Box
+        </div>
         </div>
     );
 }
