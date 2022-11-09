@@ -1,10 +1,12 @@
 import { Link, NavLink, Route, Routes } from "react-router-dom";
-import "./App.css";
-import Todo2 from "~/features/Todo2";
-import Album from "./features/Album";
 import Todo from "~/features/Todo";
-import TodoRender from "./features/TodoRender";
+import Todo2 from "~/features/Todo2";
+import "./App.css";
+import Album from "./features/Album";
 import ColorBox from "./features/ColorBox";
+import FetchApi from "./features/FetchApi";
+import FetchApi2 from "./features/FetchApi2";
+import TodoRender from "./features/TodoRender";
 
 function App() {
     return (
@@ -43,6 +45,12 @@ function App() {
                 <li>
                     <Link to="/todorender">Todo Render</Link>
                 </li>
+                <li>
+                    <Link to="/fetch-api">Fetch Api</Link>
+                </li>
+                <li>
+                    <Link to="/fetch-api-2">Fetch Api 2</Link>
+                </li>
             </ul>
             <Routes>
                 <Route exact={false} path="/album" element={<Album />} />
@@ -50,6 +58,8 @@ function App() {
                 <Route path="/todo2" element={<Todo2 />} />
                 <Route path="/colorbox" element={<ColorBox />} />
                 <Route path="/todorender" element={<TodoRender />} />
+                <Route path="/fetch-api" element={<FetchApi />} />
+                <Route path="/fetch-api-2" element={<FetchApi2 />} />
             </Routes>
 
             <h3>Footer</h3>
