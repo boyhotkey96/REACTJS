@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import List from "./components/List";
 import ChangePage from "./components/Pagination";
 import queryString from 'query-string'
+import InputSearch from "./components/InputSearch";
 
 function FetchApi() {
     const [list, setList] = useState([]);
@@ -13,6 +14,7 @@ function FetchApi() {
     const [filter, setFilter] = useState({
         _limit: 10,
         _page: 1,
+        title_like: '',
     })
 
     const handleChangePage = (newPage) => {
@@ -41,8 +43,15 @@ function FetchApi() {
         fetchPostList();
     }, [filter]);
 
+    const handleSubmitForm = (value) => {
+        // console.log(value)
+        const { searchTerm } = value;
+        setFilter({...filter, _page: 1, title_like: searchTerm})
+    }
+
     return (
         <>
+            <InputSearch onSubmit={handleSubmitForm} />
             <List list={list} />
             <ChangePage pagination={pagination} onChangePage={handleChangePage} />
         </>

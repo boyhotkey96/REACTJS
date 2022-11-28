@@ -3,6 +3,7 @@ import Todo from "~/features/Todo";
 import Todo2 from "~/features/Todo2";
 import "./App.css";
 import Album from "./features/Album";
+import Clock from "./features/Clock";
 import ColorBox from "./features/ColorBox";
 import FetchApi from "./features/FetchApi";
 import FetchApi2 from "./features/FetchApi2";
@@ -51,6 +52,9 @@ function App() {
                 <li>
                     <Link to="/fetch-api-2">Fetch Api 2</Link>
                 </li>
+                <li>
+                    <Link to="/clock">Clock</Link>
+                </li>
             </ul>
             <Routes>
                 <Route exact={false} path="/album" element={<Album />} />
@@ -60,6 +64,7 @@ function App() {
                 <Route path="/todorender" element={<TodoRender />} />
                 <Route path="/fetch-api" element={<FetchApi />} />
                 <Route path="/fetch-api-2" element={<FetchApi2 />} />
+                <Route path="/clock" element={<Clock />} />
             </Routes>
 
             <h3>Footer</h3>
