@@ -8,6 +8,7 @@ import Clock from "./features/Clock";
 import ColorBox from "./features/ColorBox";
 import FetchApi from "./features/FetchApi";
 import FetchApi2 from "./features/FetchApi2";
+import IdRandom from './features/IdRandom';
 import TodoRender from "./features/TodoRender";
 
 function App() {
@@ -59,6 +60,9 @@ function App() {
         <li>
           <Link to="/magic-color">Magic Color: using custom hook</Link>
         </li>
+        <li>
+          <Link to="/idrandom">ID Random</Link>
+        </li>
       </ul>
       <Routes>
         <Route exact={false} path="/album" element={<Album />} />
@@ -70,6 +74,7 @@ function App() {
         <Route path="/fetch-api-2" element={<FetchApi2 />} />
         <Route path="/clock" element={<Clock />} />
         <Route path="/magic-color" element={<MagicColor />} />
+        <Route path="/idrandom" element={<IdRandom />} />
       </Routes>
 
       <h3>Footer</h3>

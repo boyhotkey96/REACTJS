@@ -1,0 +1,9 @@
+ul.random-list li {
+  transition: all .25s ease-in-out 0s;
+  cursor: pointer;
+}
+
+ul.random-list>li.active {
+  color: deeppink;
+  font-weight: bold;
+}
