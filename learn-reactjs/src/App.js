@@ -9,6 +9,7 @@ import ColorBox from "./features/ColorBox";
 import FetchApi from "./features/FetchApi";
 import FetchApi2 from "./features/FetchApi2";
 import IdRandom from './features/IdRandom';
+import NumbersRandomStorage from "./features/NumbersRandomStorage";
 import TodoRender from "./features/TodoRender";
 
 function App() {
@@ -63,6 +64,9 @@ function App() {
         <li>
           <Link to="/idrandom">ID Random</Link>
         </li>
+        <li>
+          <Link to="/number-random-storage">Numbers Random Storage</Link>
+        </li>
       </ul>
       <Routes>
         <Route exact={false} path="/album" element={<Album />} />
@@ -75,8 +79,8 @@ function App() {
         <Route path="/clock" element={<Clock />} />
         <Route path="/magic-color" element={<MagicColor />} />
         <Route path="/idrandom" element={<IdRandom />} />
+        <Route path="/number-random-storage" element={<NumbersRandomStorage />} />
       </Routes>
-
       <h3>Footer</h3>
     </div>
   );

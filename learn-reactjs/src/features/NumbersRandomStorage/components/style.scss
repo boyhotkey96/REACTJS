@@ -1,0 +1,11 @@
+ul.numberrandom-list {
+  & li {
+    transition: all .25s ease-in 0s;
+    cursor: pointer;
+  }
+
+  & li.active {
+    font-weight: bold;
+    color: deeppink;
+  }
+}
