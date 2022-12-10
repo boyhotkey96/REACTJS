@@ -8,6 +8,7 @@ import Clock from "./features/Clock";
 import ColorBox from "./features/ColorBox";
 import FetchApi from "./features/FetchApi";
 import FetchApi2 from "./features/FetchApi2";
+import FormikForm from "./features/FormikForm";
 import IdRandom from './features/IdRandom';
 import NumbersRandomStorage from "./features/NumbersRandomStorage";
 import TodoRender from "./features/TodoRender";
@@ -67,6 +68,9 @@ function App() {
         <li>
           <Link to="/number-random-storage">Numbers Random Storage</Link>
         </li>
+        <li>
+          <Link to="/formik-form">Form with formik</Link>
+        </li>
       </ul>
       <Routes>
         <Route exact={false} path="/album" element={<Album />} />
@@ -80,6 +84,7 @@ function App() {
         <Route path="/magic-color" element={<MagicColor />} />
         <Route path="/idrandom" element={<IdRandom />} />
         <Route path="/number-random-storage" element={<NumbersRandomStorage />} />
+        <Route path="/formik-form" element={<FormikForm />} />
       </Routes>
       <h3>Footer</h3>
     </div>
