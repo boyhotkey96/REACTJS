@@ -1,24 +1,32 @@
 import { Field } from "formik";
 
-function SelectField({ field, ...props }) {
+function SelectField({ field, form, ...props }) {
+  const { name } = field;
+  const { errors, touched } = form;
   const { label, placeholder, isDisable = false, options } = props;
-  console.log(placeholder)
+  console.log(form);
+  
   return (
     <div className="form-group">
-      {label && <label htmlFor={field.name}>{label}:</label>}
+      {label && <label htmlFor={name}>{label}:</label>}
       <Field
         as="select"
-        id={field.name}
+        id={name}
         {...field}
         disabled={isDisable}
         // placeholder={placeholder}
-        defaultValue={'DEFAULT'}
+        defaultValue={"DEFAULT"}
       >
-        <option value="DEFAULT" disabled>{placeholder}</option>
+        <option value="DEFAULT" disabled>
+          {placeholder}
+        </option>
         {options.map(({ value, label }) => (
-          <option key={value} value={value}>{label}</option>
+          <option key={value} value={value}>
+            {label}
+          </option>
         ))}
       </Field>
+      {errors && touched ? <div>{errors[name]}</div> : null}
     </div>
   );
 }

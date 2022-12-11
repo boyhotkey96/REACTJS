@@ -1,4 +1,5 @@
-import { FastField, Form, Formik } from "formik";
+import { ErrorMessage, FastField, Form, Formik } from "formik";
+import * as yup from 'yup';
 import InputFiedld from "./components/InputFiedld";
 import RandomPhotoField from "./components/RandomPhotoField";
 import SelectField from "./components/SelectField";
@@ -7,28 +8,48 @@ import "./style.scss";
 
 function FormikForm() {
   const initialValues = {
-    firstname: "",
-    lastname: "",
+    title: "",
+    category: undefined,
+    photo: "",
   };
+
+  let validationSchema = yup.object().shape({
+    title: yup.string().required('This is required'),
+    category: yup.number().required('This is required'),
+    photo: yup.string().required('Choose photo'),
+  })
+  // validationSchema
+  //   .isValid({
+  //     title: "",
+  //     category: 1,
+  //   })
+  //   .then((valid) => {
+  //     console.log(valid)
+  //   })
 
   return (
     <>
       <h1>Formik</h1>
-      <Formik initialValues={initialValues} onSubmit={values => console.log(values)}>
+      <Formik
+        initialValues={initialValues}
+        onSubmit={values => console.log(values)}
+        validationSchema={validationSchema}
+      >
         {(formikProps) => {
           const { values, errors, touched } = formikProps;
-          // console.log(values);
+          console.log(errors);
 
           return (
             <Form>
               <FastField
-                name="firstname"
+                name="title"
                 component={InputFiedld}
                 // isDisable={true}
-                label="First name"
-                placeholder="Enter first name"
+                label="Title"
+                placeholder="Enter title"
               />
-              <FastField
+              {/* {errors.title && touched.title ? <span>{errors.title}</span> : null} */}
+              {/* <FastField
                 name="lastname"
                 component={InputFiedld}
                 label="Last name"
@@ -47,7 +68,7 @@ function FormikForm() {
                 type="password"
                 label="Password"
                 placeholder="Enter password"
-              />
+              /> */}
               <FastField
                 name="category"
                 component={SelectField}
@@ -56,6 +77,7 @@ function FormikForm() {
                 placeholder="-- Choose color --"
                 options={COLOR_LIST}
               />
+              {/* {errors.title && touched.title ? <FormFeedback>{errors.title}</FormFeedback> : null} */}
               <FastField
                 name="photo"
                 component={RandomPhotoField}

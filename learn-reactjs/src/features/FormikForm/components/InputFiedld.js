@@ -1,8 +1,9 @@
-import { Field } from "formik";
+import { ErrorMessage, Field } from "formik";
 
 function InputFiedld({ field, form,...props }) {
   const { onChange, onBlur, value, name } = field;
   const { label, placeholder, type = 'text', isDisable = false  } = props;
+  console.log(<ErrorMessage name={name} component="div" />)
 
   return (
     <div className="form-group">
@@ -18,6 +19,7 @@ function InputFiedld({ field, form,...props }) {
         type={type}
         placeholder={placeholder}
       />
+      <ErrorMessage name={name} component="div" />
     </div>
   )
 }

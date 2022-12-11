@@ -1,3 +1,4 @@
+
 const getRandomImage = () => {
   const idRandom = Math.floor(Math.random() * 2000);
   return `https://picsum.photos/200/300?random=${idRandom}`;
@@ -14,17 +15,17 @@ function RandomPhoto(props) {
   };
 
   return (
-    <div className="form-group">
+    <>
       <button name={name} onBlur={onRandomImageBlur} onClick={handleClick}>
         Random a photo
       </button>
       <div className="photo__image">
         {<img
-          src={imageUrl || `https://picsum.photos/200/300?random=0`}
+          src={imageUrl || `https://via.placeholder.com/200.png?text=Photo+default`}
           alt="photos"
         />}
       </div>
-    </div>
+    </>
   );
 }
 
