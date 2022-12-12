@@ -5,7 +5,7 @@ function SelectField({ field, form, ...props }) {
   const { errors, touched } = form;
   const showMessage = errors[name] && touched[name];
   const { label, placeholder, isDisable = false, options } = props;
-  console.log(form);
+  // console.log(form);
   
   return (
     <div className="form-group">

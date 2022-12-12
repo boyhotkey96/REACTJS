@@ -8,9 +8,10 @@ import Clock from "./features/Clock";
 import ColorBox from "./features/ColorBox";
 import FetchApi from "./features/FetchApi";
 import FetchApi2 from "./features/FetchApi2";
-import FormikForm from "./features/FormikForm";
 import IdRandom from './features/IdRandom';
 import NumbersRandomStorage from "./features/NumbersRandomStorage";
+import Photos from "./features/Photos";
+import AddPhoto from "./features/Photos/AddPhoto";
 import TodoRender from "./features/TodoRender";
 
 function App() {
@@ -69,7 +70,7 @@ function App() {
           <Link to="/number-random-storage">Numbers Random Storage</Link>
         </li>
         <li>
-          <Link to="/formik-form">Form with formik</Link>
+          <Link to="/photos">Photo using Redux toolkit</Link>
         </li>
       </ul>
       <Routes>
@@ -84,7 +85,8 @@ function App() {
         <Route path="/magic-color" element={<MagicColor />} />
         <Route path="/idrandom" element={<IdRandom />} />
         <Route path="/number-random-storage" element={<NumbersRandomStorage />} />
-        <Route path="/formik-form" element={<FormikForm />} />
+        <Route path="/photos" element={<Photos />} />
+        <Route path="/photos/add" element={<AddPhoto />} />
       </Routes>
       <h3>Footer</h3>
     </div>

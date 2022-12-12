@@ -1,12 +1,12 @@
 import { FastField, Form, Formik } from "formik";
 import * as Yup from "yup";
+import { COLOR_LIST } from "../constant";
+import "../style.scss";
 import InputFiedld from "./components/InputFiedld";
 import RandomPhotoField from "./components/RandomPhotoField";
 import SelectField from "./components/SelectField";
-import { COLOR_LIST } from "./constant";
-import "./style.scss";
 
-function FormikForm() {
+function PhotoForm(props) {
   const initialValues = {
     title: "",
     category: undefined,
@@ -36,12 +36,17 @@ function FormikForm() {
       <h1>Formik</h1>
       <Formik
         initialValues={initialValues}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values, actions) => {
+          props.onSubmit(values).then(() => {
+            // actions.setSubmitting(false)
+            actions.resetForm({});
+          });
+        }}
         validationSchema={validationSchema}
       >
         {(formikProps) => {
-          const { values, errors, touched } = formikProps;
-          console.log(errors);
+          const { values, errors, touched, isSubmitting } = formikProps;
+          // console.log(formikProps);
 
           return (
             <Form>
@@ -87,9 +92,13 @@ function FormikForm() {
                 component={RandomPhotoField}
                 label="Photo"
               />
-              <button className="btn btn-submit" type="submit">
-                Add to album
+              {/* {isSubmitting ? (
+                <button className="btn btn-loading">Loading...</button>
+              ) : ( */}
+              <button disabled={isSubmitting} className="btn btn-submit" type="submit">
+                {isSubmitting ? 'Loading...' : 'Add to album'}
               </button>
+              {/* )} */}
             </Form>
           );
         }}
@@ -98,4 +107,4 @@ function FormikForm() {
   );
 }
 
-export default FormikForm;
+export default PhotoForm;

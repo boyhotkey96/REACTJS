@@ -31,6 +31,7 @@
     margin-top: 10px;
     width: 200px;
     height: 200px;
+    background-color: #a9a4a4;
 
     &>img {
       width: 100%;
@@ -42,13 +43,15 @@
   .is-invalid {
     border: 1px solid red;
 
-    & + div {
+    &+div {
       color: red;
     }
   }
 }
 
 .btn {
+
+  &-loading,
   &-submit {
     margin-top: 15px;
     color: #fff;

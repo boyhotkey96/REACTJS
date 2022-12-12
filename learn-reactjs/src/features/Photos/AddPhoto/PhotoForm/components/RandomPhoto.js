@@ -1,13 +1,13 @@
-
 const getRandomImage = () => {
   const idRandom = Math.floor(Math.random() * 2000);
   return `https://picsum.photos/200/300?random=${idRandom}`;
 };
 
 function RandomPhoto(props) {
-  const { name, imageUrl, onImageUrlChange, onRandomImageBlur } = props;
+  const { name, imageUrl, onImageUrlChange, onRandomButtonBlur } = props;
 
-  const handleClick = async () => {
+  const handleRandomPhotoClick = async (e) => {
+    e.preventDefault()
     if (onImageUrlChange) {
       const randomImageUrl = getRandomImage();
       onImageUrlChange(randomImageUrl);
@@ -16,14 +16,11 @@ function RandomPhoto(props) {
 
   return (
     <>
-      <button name={name} onBlur={onRandomImageBlur} onClick={handleClick}>
+      <button name={name} onBlur={onRandomButtonBlur} onClick={handleRandomPhotoClick}>
         Random a photo
       </button>
       <div className="photo__image">
-        {<img
-          src={imageUrl || `https://via.placeholder.com/200.png?text=Photo+default`}
-          alt="photos"
-        />}
+        {imageUrl && <img src={imageUrl} alt="photos" />}
       </div>
     </>
   );

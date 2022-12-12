@@ -18,13 +18,12 @@ function RandomPhotoField({ field, form, ...props }) {
         name={name}
         imageUrl={value}
         onImageUrlChange={handleImageUrlChange}
-        onRandomImageBlur={onBlur}
+        onRandomButtonBlur={onBlur}
       // className={showMessage ? "is-invalid" : null}
       />
       <div style={{ color: showMessage ? 'red' : '' }}>
         <ErrorMessage name={name} component="div" />
       </div>
-      {/* {errors && touched ? <div>{errors[name]}</div> : null} */}
     </div>
   );
 }
