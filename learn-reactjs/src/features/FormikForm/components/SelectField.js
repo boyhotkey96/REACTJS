@@ -3,6 +3,7 @@ import { Field } from "formik";
 function SelectField({ field, form, ...props }) {
   const { name } = field;
   const { errors, touched } = form;
+  const showMessage = errors[name] && touched[name];
   const { label, placeholder, isDisable = false, options } = props;
   console.log(form);
   
@@ -16,6 +17,7 @@ function SelectField({ field, form, ...props }) {
         disabled={isDisable}
         // placeholder={placeholder}
         defaultValue={"DEFAULT"}
+        className={showMessage ? 'is-invalid' : ''}
       >
         <option value="DEFAULT" disabled>
           {placeholder}
@@ -26,7 +28,7 @@ function SelectField({ field, form, ...props }) {
           </option>
         ))}
       </Field>
-      {errors && touched ? <div>{errors[name]}</div> : null}
+      {showMessage ? <div>{errors[name]}</div> : null}
     </div>
   );
 }

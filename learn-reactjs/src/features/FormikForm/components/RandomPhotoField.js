@@ -4,9 +4,8 @@ import RandomPhoto from "./RandomPhoto";
 function RandomPhotoField({ field, form, ...props }) {
   const { onBlur, value, name } = field;
   const { errors, touched } = form;
+  const showMessage = errors[name] && touched[name];
   const { label } = props;
-  console.log(errors)
-  console.log(<ErrorMessage name={name} component="div" />)
 
   const handleImageUrlChange = (newImageUrl) => {
     form.setFieldValue(name, newImageUrl);
@@ -20,8 +19,11 @@ function RandomPhotoField({ field, form, ...props }) {
         imageUrl={value}
         onImageUrlChange={handleImageUrlChange}
         onRandomImageBlur={onBlur}
+      // className={showMessage ? "is-invalid" : null}
       />
-      <ErrorMessage name={name} component="div" />
+      <div style={{ color: showMessage ? 'red' : '' }}>
+        <ErrorMessage name={name} component="div" />
+      </div>
       {/* {errors && touched ? <div>{errors[name]}</div> : null} */}
     </div>
   );

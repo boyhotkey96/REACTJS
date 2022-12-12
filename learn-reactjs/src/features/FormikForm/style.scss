@@ -38,6 +38,14 @@
       object-fit: cover;
     }
   }
+
+  .is-invalid {
+    border: 1px solid red;
+
+    & + div {
+      color: red;
+    }
+  }
 }
 
 .btn {

@@ -1,5 +1,5 @@
-import { ErrorMessage, FastField, Form, Formik } from "formik";
-import * as yup from 'yup';
+import { FastField, Form, Formik } from "formik";
+import * as Yup from "yup";
 import InputFiedld from "./components/InputFiedld";
 import RandomPhotoField from "./components/RandomPhotoField";
 import SelectField from "./components/SelectField";
@@ -13,11 +13,15 @@ function FormikForm() {
     photo: "",
   };
 
-  let validationSchema = yup.object().shape({
-    title: yup.string().required('This is required'),
-    category: yup.number().required('This is required'),
-    photo: yup.string().required('Choose photo'),
-  })
+  let validationSchema = Yup.object().shape({
+    title: Yup.string().required("This is required"),
+    category: Yup.number().required("This is required"),
+    photo: Yup.string().when("category", {
+      is: 1,
+      then: Yup.string().required("Choose photo"),
+      otherwise: Yup.string().notRequired(),
+    }),
+  });
   // validationSchema
   //   .isValid({
   //     title: "",
@@ -32,7 +36,7 @@ function FormikForm() {
       <h1>Formik</h1>
       <Formik
         initialValues={initialValues}
-        onSubmit={values => console.log(values)}
+        onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
         {(formikProps) => {
@@ -83,7 +87,9 @@ function FormikForm() {
                 component={RandomPhotoField}
                 label="Photo"
               />
-              <button className="btn btn-submit" type="submit">Add to album</button>
+              <button className="btn btn-submit" type="submit">
+                Add to album
+              </button>
             </Form>
           );
         }}
