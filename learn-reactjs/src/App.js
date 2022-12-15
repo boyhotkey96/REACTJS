@@ -1,4 +1,4 @@
-import { Link, NavLink, Route, Routes } from "react-router-dom";
+import { Navigate, NavLink, Route, Routes } from "react-router-dom";
 import Todo from "~/features/Todo";
 import Todo2 from "~/features/Todo2";
 import "./App.css";
@@ -8,19 +8,20 @@ import Clock from "./features/Clock";
 import ColorBox from "./features/ColorBox";
 import FetchApi from "./features/FetchApi";
 import FetchApi2 from "./features/FetchApi2";
-import IdRandom from './features/IdRandom';
+import IdRandom from "./features/IdRandom";
 import NumbersRandomStorage from "./features/NumbersRandomStorage";
-import Photos from "./features/Photos";
 import AddPhoto from "./features/Photos/AddPhoto";
+import MainPhotoLayout from "./features/Photos/MainPhotoLayout";
+import Add from "./features/Photos/pages/Add";
 import TodoRender from "./features/TodoRender";
 
 function App() {
   return (
     <div className="app">
-      <h1>This is Header</h1>
+      <h1 className="header">This is Header</h1>
       <ul>
         {" "}
-        <h2>Menu</h2>
+        <h3>Menu</h3>
         <li>
           <NavLink
             to="/album"
@@ -46,34 +47,35 @@ function App() {
           </NavLink>
         </li>
         <li>
-          <Link to="/colorbox">Color Box</Link>
+          <NavLink to="/colorbox">Color Box</NavLink>
         </li>
         <li>
-          <Link to="/todorender">Todo Render</Link>
+          <NavLink to="/todorender">Todo Render</NavLink>
         </li>
         <li>
-          <Link to="/fetch-api">Fetch Api</Link>
+          <NavLink to="/fetch-api">Fetch Api</NavLink>
         </li>
         <li>
-          <Link to="/fetch-api-2">Fetch Api 2</Link>
+          <NavLink to="/fetch-api-2">Fetch Api 2</NavLink>
         </li>
         <li>
-          <Link to="/clock">Clock</Link>
+          <NavLink to="/clock">Clock</NavLink>
         </li>
         <li>
-          <Link to="/magic-color">Magic Color: using custom hook</Link>
+          <NavLink to="/magic-color">Magic Color: using custom hook</NavLink>
         </li>
         <li>
-          <Link to="/idrandom">ID Random</Link>
+          <NavLink to="/idrandom">ID Random</NavLink>
         </li>
         <li>
-          <Link to="/number-random-storage">Numbers Random Storage</Link>
+          <NavLink to="/number-random-storage">Numbers Random Storage</NavLink>
         </li>
         <li>
-          <Link to="/photos">Photo using Redux toolkit</Link>
+          <NavLink to="/photos">Photo using Redux toolkit</NavLink>
         </li>
       </ul>
       <Routes>
+        <Route path="/" element={<Navigate to="/album" />} />
         <Route exact={false} path="/album" element={<Album />} />
         <Route path="/todo" element={<Todo />} />
         <Route path="/todo2" element={<Todo2 />} />
@@ -84,11 +86,16 @@ function App() {
         <Route path="/clock" element={<Clock />} />
         <Route path="/magic-color" element={<MagicColor />} />
         <Route path="/idrandom" element={<IdRandom />} />
-        <Route path="/number-random-storage" element={<NumbersRandomStorage />} />
-        <Route path="/photos" element={<Photos />} />
-        <Route path="/photos/add" element={<AddPhoto />} />
+        <Route
+          path="/number-random-storage"
+          element={<NumbersRandomStorage />}
+        />
+        <Route path="/photos" element={<MainPhotoLayout />}>
+          <Route index element={<Add />} />
+          <Route path="/photos/add" element={<AddPhoto />} />
+        </Route>
       </Routes>
-      <h3>Footer</h3>
+      <h2 className="footer">Footer</h2>
     </div>
   );
 }

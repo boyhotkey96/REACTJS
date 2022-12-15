@@ -1,4 +1,5 @@
 import { FastField, Form, Formik } from "formik";
+import { useLocation } from "react-router-dom";
 import * as Yup from "yup";
 import { COLOR_LIST } from "../constant";
 import "../style.scss";
@@ -31,6 +32,9 @@ function PhotoForm(props) {
   //     console.log(valid)
   //   })
 
+  const location = useLocation();
+  // const { title = value, category, photo } = location.state
+
   return (
     <>
       <h1>Formik</h1>
@@ -51,8 +55,9 @@ function PhotoForm(props) {
           return (
             <Form>
               <FastField
-                name="title"
+                name={'title'}
                 component={InputFiedld}
+                xx={location.state}
                 // isDisable={true}
                 label="Title"
                 placeholder="Enter title"

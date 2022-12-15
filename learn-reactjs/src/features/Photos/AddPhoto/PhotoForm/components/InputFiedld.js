@@ -1,10 +1,11 @@
 import { ErrorMessage, Field } from "formik";
 
-function InputFiedld({ field, form, ...props }) {
+function InputFiedld({ field, form,  ...props }) {
   const { onChange, onBlur, value, name } = field;
   const { errors, touched } = form;
   const showMessage = errors[name] && touched[name];
-  const { label, placeholder, type = "text", isDisable = false } = props;
+  const { label, placeholder, type = "text", isDisable = false, xx } = props;
+  console.log(xx)
 
   return (
     <div className="form-group">
@@ -12,7 +13,7 @@ function InputFiedld({ field, form, ...props }) {
       <Field
         id={name}
         name={name}
-        value={value}
+        value={xx.title || value}
         onChange={onChange}
         onBlur={onBlur}
         disabled={isDisable}

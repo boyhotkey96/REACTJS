@@ -1,3 +1,22 @@
 .app {
   font-size: 20px;
 }
+.header, .footer {
+  color: rgb(163, 78, 162);
+}
+
+a {
+  color: rgb(105, 105, 242);
+  text-decoration: none;
+  transition: color .25s ease-out 0s;
+}
+
+a:hover {
+  color: green;
+  font-weight: bold;
+}
+
+.active, .active-menu {
+  color: green;
+  font-weight: bold;
+}
