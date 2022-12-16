@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { removePhoto } from "../PhotoSlice";
-import Render from "./Render";
+import Render from "./RenderPage";
 
 function Add() {
   const photos = useSelector((state) => state.photos);
   const dispatch = useDispatch();
   const [color, setColor] = useState();
+  const navigate = useNavigate()
 
   const handleMouseEnter = () => {
     setColor(true);
@@ -18,13 +19,12 @@ function Add() {
   };
 
   const handleRemove = (id) => {
-    // console.log(id)
     dispatch(removePhoto(id))
   }
 
-  const handleEdit = (item) => {
-    console.log(item)
+  const handleEdit = (photo) => {
     // dispatch(editPhoto(item))
+    navigate(`/photos/${photo.id}`, { state: photo });
   }
 
   return (
@@ -32,17 +32,19 @@ function Add() {
       <Link
         to="/photos/add"
         style={{
-          display: "flex",
-          justifyContent: "center",
-          textDecoration: "none",
           color: color ? "green" : "blue",
+          fontWeight: 'bold',
+          display: 'block',
+          fontSize: '22px',
+          textAlign: 'center',
+          padding: "30px 0",
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         Add Photo
       </Link>
-      <Render photos={photos} onEditClick={handleEdit} onAddClick={handleRemove} />
+      <Render photos={photos} onEditClick={handleEdit} onRemoveClick={handleRemove} />
     </section>
   );
 }

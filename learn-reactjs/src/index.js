@@ -15,14 +15,14 @@ const stores = {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
       {/* <Provider store={stores.storeRedux}> */}
       <Provider store={stores.storeReduxToolkit}>
         <App />
       </Provider>
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 reportWebVitals();

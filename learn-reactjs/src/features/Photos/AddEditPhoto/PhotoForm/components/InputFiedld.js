@@ -4,8 +4,7 @@ function InputFiedld({ field, form,  ...props }) {
   const { onChange, onBlur, value, name } = field;
   const { errors, touched } = form;
   const showMessage = errors[name] && touched[name];
-  const { label, placeholder, type = "text", isDisable = false, xx } = props;
-  console.log(xx)
+  const { label, placeholder, type = "text", isDisable = false } = props;
 
   return (
     <div className="form-group">
@@ -13,7 +12,7 @@ function InputFiedld({ field, form,  ...props }) {
       <Field
         id={name}
         name={name}
-        value={xx.title || value}
+        value={value}
         onChange={onChange}
         onBlur={onBlur}
         disabled={isDisable}

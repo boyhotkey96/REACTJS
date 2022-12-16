@@ -10,9 +10,7 @@ import FetchApi from "./features/FetchApi";
 import FetchApi2 from "./features/FetchApi2";
 import IdRandom from "./features/IdRandom";
 import NumbersRandomStorage from "./features/NumbersRandomStorage";
-import AddPhoto from "./features/Photos/AddPhoto";
 import MainPhotoLayout from "./features/Photos/MainPhotoLayout";
-import Add from "./features/Photos/pages/Add";
 import TodoRender from "./features/TodoRender";
 
 function App() {
@@ -90,10 +88,13 @@ function App() {
           path="/number-random-storage"
           element={<NumbersRandomStorage />}
         />
-        <Route path="/photos" element={<MainPhotoLayout />}>
+
+        {/* Case 1; */}
+        {/* <Route path="/photos" element={<MainPhotoLayout />}>
           <Route index element={<Add />} />
           <Route path="/photos/add" element={<AddPhoto />} />
-        </Route>
+        </Route> */}
+        <Route path="/photos/*" element={<MainPhotoLayout />} />
       </Routes>
       <h2 className="footer">Footer</h2>
     </div>

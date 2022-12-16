@@ -19,6 +19,7 @@ function RandomPhotoField({ field, form, ...props }) {
         imageUrl={value}
         onImageUrlChange={handleImageUrlChange}
         onRandomButtonBlur={onBlur}
+        onError={handleImageUrlChange}
       // className={showMessage ? "is-invalid" : null}
       />
       <div style={{ color: showMessage ? 'red' : '' }}>

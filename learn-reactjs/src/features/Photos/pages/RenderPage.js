@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const WrapperPhotoList = styled.div`
@@ -84,35 +83,30 @@ const WrapContent = styled.div`
   }
 `;
 
-function Render({ photos, onAddClick, onEditClick }) {
-  const navigate = useNavigate();
+function Render({ photos, onRemoveClick, onEditClick }) {
 
   const handleRemoveClick = (id) => {
-    if (onAddClick) {
-      onAddClick(id);
+    if (onRemoveClick) {
+      onRemoveClick(id);
     }
   };
 
-  const handleEditAddClick = (item) => {
+  const handleEditAddClick = (photo) => {
     if (onEditClick) {
-      onEditClick(item);
-      navigate("/photos/add", { state: item });
+      onEditClick(photo);
     }
   };
 
   return (
     <WrapperPhotoList>
-      {photos.map((item, index) => (
+      {photos.map((photo, index) => (
         <WrapperPhotoItem key={index}>
-          <img src={item.photo} alt={item.title || "no title"} />
+          <img src={photo.photo} alt={photo.title || "photo no title"} />
           <WrapContent>
-            <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod,
-              at! Provident
-            </p>
+            <p>{photo.title}</p>
             <div>
-              <button onClick={() => handleEditAddClick(item)}>Edit</button>
-              <button onClick={() => handleRemoveClick(item.id)}>Remove</button>
+              <button onClick={() => handleEditAddClick(photo)}>Edit</button>
+              <button onClick={() => handleRemoveClick(photo.id)}>Remove</button>
             </div>
           </WrapContent>
         </WrapperPhotoItem>

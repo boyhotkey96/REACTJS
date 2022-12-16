@@ -1,5 +1,4 @@
 import { FastField, Form, Formik } from "formik";
-import { useLocation } from "react-router-dom";
 import * as Yup from "yup";
 import { COLOR_LIST } from "../constant";
 import "../style.scss";
@@ -8,11 +7,12 @@ import RandomPhotoField from "./components/RandomPhotoField";
 import SelectField from "./components/SelectField";
 
 function PhotoForm(props) {
-  const initialValues = {
-    title: "",
-    category: undefined,
-    photo: "",
-  };
+  // const initialValues = {
+  //   title: "",
+  //   category: undefined,
+  //   photo: "",
+  // };
+  const { initialValues, isAddMode } = props;
 
   let validationSchema = Yup.object().shape({
     title: Yup.string().required("This is required"),
@@ -31,9 +31,6 @@ function PhotoForm(props) {
   //   .then((valid) => {
   //     console.log(valid)
   //   })
-
-  const location = useLocation();
-  // const { title = value, category, photo } = location.state
 
   return (
     <>
@@ -55,9 +52,8 @@ function PhotoForm(props) {
           return (
             <Form>
               <FastField
-                name={'title'}
+                name="title"
                 component={InputFiedld}
-                xx={location.state}
                 // isDisable={true}
                 label="Title"
                 placeholder="Enter title"
@@ -100,10 +96,20 @@ function PhotoForm(props) {
               {/* {isSubmitting ? (
                 <button className="btn btn-loading">Loading...</button>
               ) : ( */}
-              <button disabled={isSubmitting} className="btn btn-submit" type="submit">
-                {isSubmitting ? 'Loading...' : 'Add to album'}
+              <button
+                disabled={isSubmitting}
+                style={{ backgroundColor: props.isAddMode ? 'blue' : 'green' }}
+                className="btn btn-submit"
+                type="submit"
+              >
+                {isAddMode
+                  ? isSubmitting
+                    ? "Adding"
+                    : "Add to album"
+                  : isSubmitting
+                    ? "Updating"
+                    : "Update to your photo"}
               </button>
-              {/* )} */}
             </Form>
           );
         }}
