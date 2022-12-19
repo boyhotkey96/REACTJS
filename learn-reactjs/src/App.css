@@ -13,7 +13,6 @@ a {
 
 a:hover {
   color: green;
-  font-weight: bold;
 }
 
 .active, .active-menu {
