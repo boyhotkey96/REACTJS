@@ -88,13 +88,13 @@ function App() {
           path="/number-random-storage"
           element={<NumbersRandomStorage />}
         />
-
         {/* Case 1; */}
         {/* <Route path="/photos" element={<MainPhotoLayout />}>
-          <Route index element={<Add />} />
-          <Route path="/photos/add" element={<AddPhoto />} />
-        </Route> */}
+            <Route index element={<Add />} />
+            <Route path="/photos/add" element={<AddPhoto />} />
+          </Route> */}
         <Route path="/photos/*" element={<MainPhotoLayout />} />
+        <Route path="*" element={<p>404: Không tìm thấy trang!</p>} />
       </Routes>
       <h2 className="footer">Footer</h2>
     </div>

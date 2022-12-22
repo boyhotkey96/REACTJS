@@ -32,6 +32,10 @@ function PhotoForm(props) {
   //     console.log(valid)
   //   })
 
+  if (!initialValues) {
+    return <p>404</p>
+  }
+
   return (
     <>
       <h1>Formik</h1>

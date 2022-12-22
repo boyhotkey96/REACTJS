@@ -1,19 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { addPhoto, updatePhoto } from "../PhotoSlice";
 import PhotoForm from "./PhotoForm";
 
 function AddEditPhoto() {
+  const navigate = useNavigate();
   const { photoId } = useParams();
   const isAddMode = !photoId;
-  // console.log(photoId)
 
   const dispatch = useDispatch();
 
   const editPhoto = useSelector((state) =>
     state.photos.find((photo) => photo.id === +photoId)
   );
-  const navigate = useNavigate();
 
   const initialValues = isAddMode
     ? {
@@ -39,6 +38,11 @@ function AddEditPhoto() {
       }, 1500);
     });
   };
+
+  const params = useParams();
+  console.log(params);
+  const location = useLocation();
+  console.log(location);
 
   return (
     <PhotoForm

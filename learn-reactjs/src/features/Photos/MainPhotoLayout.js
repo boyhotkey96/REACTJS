@@ -6,7 +6,8 @@ import styled from "styled-components";
 import productApi from "~/api/productApi";
 import AddEditPhoto from "./AddEditPhoto";
 import Signin from "./Auth/pages/Signin";
-import AddPage from "./pages/AddPage";
+import HomePage from "./pages/HomePage";
+
 
 const Wrap = styled.div`
   display: flex;
@@ -61,7 +62,7 @@ function MainPhotoLayout() {
 
   const indexRandom = Math.trunc(Math.random() * imageList.length);
   const imageRandom = imageList[indexRandom];
-
+ 
   useEffect(() => {
     const fetProductList = async () => {
       try {
@@ -89,7 +90,8 @@ function MainPhotoLayout() {
       if (!user) {
         console.log("Chua login")
       } else {
-        console.log(user.displayName);
+        const {displayName, email, photoURL, providerId} = user
+        console.log({displayName, email, photoURL, providerId});
         const token = await user.getIdToken();
         console.log(token)
         setIsSignedIn(!!user);
@@ -106,6 +108,18 @@ function MainPhotoLayout() {
     navigate("/photos/sign-in")
   }
 
+  const handleFetchApi = () => {
+    const params = {
+      _page: 1,
+      _limit: 10,
+    }
+    const response =  productApi.getAll(params);
+    console.log(response);
+  }
+
+  // const match = useMatches()
+  // console.log(match)
+
   return (
     <>
       <Wrap>
@@ -121,12 +135,14 @@ function MainPhotoLayout() {
       <DivBanner className="banner">
         <img src={imageRandom} alt="banner" />
       </DivBanner>
+      <button onClick={handleFetchApi}>fetchAll api</button>
       {/* <Outlet /> */}
       <Routes>
-        <Route index element={<AddPage />} />
+        <Route index element={<HomePage />} />
         <Route path="/sign-in" element={<Signin />} />
         <Route path="/add" element={<AddEditPhoto />} />
-        <Route path="/:photoId" element={<AddEditPhoto />} />
+        <Route path="/edit/:photoId" element={<AddEditPhoto />} />
+        <Route path="*" element={<p>404</p>} />
       </Routes>
     </>
   );
