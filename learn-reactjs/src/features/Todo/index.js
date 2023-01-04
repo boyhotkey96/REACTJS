@@ -1,28 +1,28 @@
-import queryString from "query-string";
-import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import TodoList from "./components/TodoList";
+import queryString from 'query-string';
+import { useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
+import TodoList from './components/TodoList';
 
 function TodoFeature() {
   const location = useLocation();
   const navigate = useNavigate();
 
   const initTodoList = [
-    { id: 1, title: "code", status: "new" },
-    { id: 2, title: "eat", status: "completed" },
-    { id: 3, title: "ngủ", status: "new" },
+    { id: 1, title: 'code', status: 'new' },
+    { id: 2, title: 'eat', status: 'completed' },
+    { id: 3, title: 'ngủ', status: 'new' },
   ];
 
   const [todoList, setTodoList] = useState(initTodoList);
   const [filteredStatus, setFilteredStatus] = useState(() => {
     const param = queryString.parse(location.search);
-    return param.status || "all";
+    return param.status || 'all';
   });
 
   useEffect(() => {
     const queryParams = location.search;
     const params = queryString.parse(queryParams);
-    setFilteredStatus(params.status || "all");
+    setFilteredStatus(params.status || 'all');
   }, [location.search]);
 
   const handleClick = (todo) => {
@@ -34,7 +34,7 @@ function TodoFeature() {
 
     newTodoList[index] = {
       ...newTodoList[index],
-      status: newTodoList[index].status === "new" ? "completed" : "new",
+      status: newTodoList[index].status === 'new' ? 'completed' : 'new',
     };
 
     setTodoList(newTodoList);
@@ -43,7 +43,7 @@ function TodoFeature() {
   const handleClickShowAll = () => {
     // setFilteredStatus("all");
 
-    const queryParams = { status: "all" };
+    const queryParams = { status: 'all' };
     const params = queryString.stringify(queryParams);
     navigate(`${location.pathname}?${params}`);
   };
@@ -51,7 +51,7 @@ function TodoFeature() {
   const handleClickShowCompleted = () => {
     // setFilteredStatus("completed");
 
-    const queryParams = { status: "completed" };
+    const queryParams = { status: 'completed' };
     const params = queryString.stringify(queryParams);
     navigate(`${location.pathname}?${params}`);
   };
@@ -59,17 +59,17 @@ function TodoFeature() {
   const handleClickShowNew = () => {
     // setFilteredStatus("new");
 
-    const queryParams = { status: "new" };
+    const queryParams = { status: 'new' };
     const params = queryString.stringify(queryParams);
     navigate(`${location.pathname}?${params}`);
   };
 
   const renderTodoList = todoList.filter(
-    (todo) => filteredStatus === "all" || filteredStatus === todo.status
+    (todo) => filteredStatus === 'all' || filteredStatus === todo.status
   );
 
   useEffect(() => {
-    console.log("todoList: ", todoList);
+    console.log('todoList: ', todoList);
   }, [todoList]);
 
   return (

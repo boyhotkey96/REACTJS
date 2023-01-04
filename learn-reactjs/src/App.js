@@ -1,29 +1,29 @@
-import { Navigate, NavLink, Route, Routes } from "react-router-dom";
-import Todo from "~/features/Todo";
-import Todo2 from "~/features/Todo2";
-import "./App.css";
-import MagicColor from "./features/ MagicColor";
-import Album from "./features/Album";
-import Clock from "./features/Clock";
-import ColorBox from "./features/ColorBox";
-import FetchApi from "./features/FetchApi";
-import FetchApi2 from "./features/FetchApi2";
-import IdRandom from "./features/IdRandom";
-import NumbersRandomStorage from "./features/NumbersRandomStorage";
-import MainPhotoLayout from "./features/Photos/MainPhotoLayout";
-import TodoRender from "./features/TodoRender";
+import { Navigate, NavLink, Route, Routes } from 'react-router-dom';
+import Todo from '~/features/Todo';
+import Todo2 from '~/features/Todo2';
+import './App.css';
+import MagicColor from './features/ MagicColor';
+import Album from './features/Album';
+import Clock from './features/Clock';
+import ColorBox from './features/ColorBox';
+import FetchApi from './features/FetchApi';
+import FetchApi2 from './features/FetchApi2';
+import IdRandom from './features/IdRandom';
+import NumbersRandomStorage from './features/NumbersRandomStorage';
+import MainPhotoLayout from './features/Photos/MainPhotoLayout';
+import TodoRender from './features/TodoRender';
 
 function App() {
   return (
     <div className="app">
       <h1 className="header">This is Header</h1>
       <ul>
-        {" "}
+        {' '}
         <h3>Menu</h3>
         <li>
           <NavLink
             to="/album"
-            className={(data) => (data.isActive ? "active-menu" : null)}
+            className={(data) => (data.isActive ? 'active-menu' : null)}
           >
             Album
           </NavLink>
@@ -31,7 +31,7 @@ function App() {
         <li>
           <NavLink
             to="/todo"
-            className={({ isActive }) => (isActive ? "active-menu" : undefined)}
+            className={({ isActive }) => (isActive ? 'active-menu' : undefined)}
           >
             Todo List
           </NavLink>
@@ -39,7 +39,7 @@ function App() {
         <li>
           <NavLink
             to="/todo2"
-            className={({ isActive }) => (isActive ? "active-menu" : null)}
+            className={({ isActive }) => (isActive ? 'active-menu' : null)}
           >
             Todo List 2
           </NavLink>
