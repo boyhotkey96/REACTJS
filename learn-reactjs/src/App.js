@@ -6,6 +6,7 @@ import MagicColor from './features/ MagicColor';
 import Album from './features/Album';
 import Clock from './features/Clock';
 import ColorBox from './features/ColorBox';
+import DemoCallApi from './features/DemoCallApi';
 import FetchApi from './features/FetchApi';
 import FetchApi2 from './features/FetchApi2';
 import IdRandom from './features/IdRandom';
@@ -71,6 +72,9 @@ function App() {
         <li>
           <NavLink to="/photos">Photo using Redux toolkit</NavLink>
         </li>
+        <li>
+          <NavLink to="/demo-call-api">Demo Call Api</NavLink>
+        </li>
       </ul>
       <Routes>
         <Route path="/" element={<Navigate to="/album" />} />
@@ -94,6 +98,7 @@ function App() {
             <Route path="/photos/add" element={<AddPhoto />} />
           </Route> */}
         <Route path="/photos/*" element={<MainPhotoLayout />} />
+        <Route path="/demo-call-api" element={<DemoCallApi />} />
         <Route path="*" element={<p>404: Không tìm thấy trang!</p>} />
       </Routes>
       <h2 className="footer">Footer</h2>
