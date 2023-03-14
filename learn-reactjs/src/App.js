@@ -77,7 +77,7 @@ function App() {
         </li>
       </ul>
       <Routes>
-        <Route path="/" element={<Navigate to="/album" />} />
+        <Route path="/" element={<Navigate to="/todorender" />} />
         <Route exact={false} path="/album" element={<Album />} />
         <Route path="/todo" element={<Todo />} />
         <Route path="/todo2" element={<Todo2 />} />
